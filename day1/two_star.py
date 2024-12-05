@@ -9,13 +9,13 @@ with open(file_path, "r") as f:
     left.append(int(parts[0]))
     right.append(int(parts[1]))
 
-sorted_left = sorted(left)
-sorted_right = sorted(right)
+similarity = 0
 
-total = 0
+for i in range(len(left)):
+  occurence = 0
+  for j in range(len(right)):    
+    if left[i] == right[j]:
+      occurence += 1
+  similarity += (left[i] * occurence)
 
-for i in range(len(sorted_left)):
-  if sorted_left[i] != sorted_right[i]:
-    total += abs(sorted_left[i] - sorted_right[i])
-
-print("Total: ", total)
+print("Total: ", similarity)
